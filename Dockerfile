@@ -9,8 +9,7 @@ RUN apk upgrade
 # USER app
 
 COPY . $APP_ROOT
-RUN node -v
-RUN yarn -v
+RUN yarn install && yarn build
 
 CMD ["yarn", "start"]
 # ENTRYPOINT ["index.js", ""]
