@@ -4,12 +4,10 @@ const batchFunction = async (name:string): Promise<void> => {
 }
 
 const main = async (): Promise<void> => {
-	// console.log(process.argv)
-	// if(process.argv.length < 3) throw new Error('Please provide a command')
-	// const command = process.argv[2]
-
-	const command = process.env.COMMAND
-	if(command === undefined) throw new Error('Please provide a COMMAND environment variable')
+	let command = process.env.COMMAND
+	if(command === undefined) {
+		command = 'Heavy Batch Process'
+	}
 
 	console.log(`Process ${command} start`)
 	await batchFunction(command)
